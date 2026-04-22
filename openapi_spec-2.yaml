@@ -1,0 +1,132 @@
+openapi: 3.0.3
+info:
+  title: Microservice Health Spec
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      summary: GET /health
+      responses:
+        '200':
+          description: Service is running
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: running
+  /weatherData:
+    get:
+      summary: GET /weatherData
+      parameters:
+        - in: query
+          name: lat
+          required: true
+          schema:
+            type: number
+            format: float
+            example: 52.52
+        - in: query
+          name: long
+          required: true
+          schema:
+            type: number
+            format: float
+            example: 13.419998
+      responses:
+        '200':
+          description: Weather forecast data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  latitude:
+                    type: number
+                    format: float
+                  longitude:
+                    type: number
+                    format: float
+                  generationtime_ms:
+                    type: number
+                    format: float
+                  utc_offset_seconds:
+                    type: integer
+                  timezone:
+                    type: string
+                  timezone_abbreviation:
+                    type: string
+                  elevation:
+                    type: number
+                    format: float
+                  current_units:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                      interval:
+                        type: string
+                      temperature_2m:
+                        type: string
+                  current:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                      interval:
+                        type: integer
+                      temperature_2m:
+                        type: number
+                        format: float
+                  daily_units:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                      temperature_2m_min:
+                        type: string
+                      temperature_2m_max:
+                        type: string
+                  daily:
+                    type: object
+                    properties:
+                      time:
+                        type: array
+                        items:
+                          type: string
+                      temperature_2m_min:
+                        type: array
+                        items:
+                          type: number
+                          format: float
+                      temperature_2m_max:
+                        type: array
+                        items:
+                          type: number
+                          format: float
+              example:
+                latitude: 52.52
+                longitude: 13.419998
+                generationtime_ms: 0.04363059997558594
+                utc_offset_seconds: -18000
+                timezone: America/Chicago
+                timezone_abbreviation: GMT-5
+                elevation: 38
+                current_units:
+                  time: iso8601
+                  interval: seconds
+                  temperature_2m: "\u00b0C"
+                current:
+                  time: "2026-04-22T16:30"
+                  interval: 900
+                  temperature_2m: 11.5
+                daily_units:
+                  time: iso8601
+                  temperature_2m_min: "\u00b0C"
+                  temperature_2m_max: "\u00b0C"
+                daily:
+                  time:
+                    - "2026-04-22"
+                  temperature_2m_min:
+                    - 2.7
+                  temperature_2m_max:
+                    - 17.8
