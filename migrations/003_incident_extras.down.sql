@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS audit_log;
+DROP TABLE IF EXISTS incident_tags;
+DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS team_members;

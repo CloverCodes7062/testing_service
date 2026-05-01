@@ -1,0 +1,14 @@
+DROP INDEX IF EXISTS idx_incidents_status_covering;
+DROP INDEX IF EXISTS idx_incidents_status_severity;
+DROP INDEX IF EXISTS idx_incidents_fts;
+DROP INDEX IF EXISTS idx_incidents_active;
+DROP INDEX IF EXISTS idx_password_reset_tokens_user_id;
+DROP INDEX IF EXISTS idx_refresh_tokens_user_id;
+DROP INDEX IF EXISTS idx_audit_log_user_id;
+DROP INDEX IF EXISTS idx_incident_tags_tag_id;
+DROP INDEX IF EXISTS idx_incident_tags_incident_id;
+DROP INDEX IF EXISTS idx_comments_user_id;
+DROP INDEX IF EXISTS idx_comments_incident_id;
+DROP INDEX IF EXISTS idx_team_members_user_id;
+DROP INDEX IF EXISTS idx_team_members_team_id;
+DROP INDEX IF EXISTS idx_incidents_team_id;
